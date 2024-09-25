@@ -1,3 +1,12 @@
+  `git clone [this repo]`  
+  `cd mean_reversion`  
+  `cargo test`  
+  `cargo run`  
+
+If the code runs all okay you will see 60 (minute) price projections for the Gold price over the next hour 
+
+
+
 ![image](https://github.com/user-attachments/assets/84dc714e-a687-43c8-9198-9b7645c7c134)
 
 This tool helps estimate how the price of Gold is likely to revert to its long-term average. It calculates the average price over a configurable number of periods (e.g., the last 36 hours), along with the realized volatility and the most recent price, using data fetched from Kraken for the PAX Gold price (PAXG), an on-chain proxy. The historical data for PAXG serves as a reliable and free 24/7 source, offering continuous returns for modeling
