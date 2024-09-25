@@ -23,6 +23,10 @@ use price::get_mean_vol_price;
 mod mean_reversion;
 use mean_reversion::ou_process;
 
+#[cfg(test)]
+#[path = "./calc/mean_reversion_test.rs"]
+mod mean_reversion_test;
+
 #[path = "./calc/calculate_volatility.rs"]
 mod calculate_volatility;
 use calculate_volatility::calculate_volatility;
@@ -60,10 +64,10 @@ async fn main() -> Result<()> {
         .parse()
         .expect("SPEED_THETA must be a valid float");
 
-    // Check that NO_OF_PERIODS is in a reasonable range
-    if speed_theta <= 0.0 || speed_theta >= 1.0 {
+    // Check that speed_theta is in a reasonable range
+    if speed_theta <= 0.0 || speed_theta > 5.0 {
         return Err(anyhow::anyhow!(
-            "SPEED_THETA must be greater than 0 and less than or equal to 1"
+            "SPEED_THETA must be greater than 0 and less than or equal to 5"
         ));
     }
 
@@ -118,10 +122,11 @@ async fn main() -> Result<()> {
     let latest = get_latest_vol_price(&results_map);
 
     debug!(
-        "SD: {}, latest {}, avg {}",
+        "SD: {}, latest {}, avg {},  theta {}",
         sd.unwrap(),
         latest.unwrap(),
-        avg_price.unwrap()
+        avg_price.unwrap(),
+        speed_theta
     );
 
     // Define the parameters for the OU process
