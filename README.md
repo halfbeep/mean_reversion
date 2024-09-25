@@ -1,3 +1,5 @@
+I use this tool to gauge how Gold will revert to its long term average. Using the average of the last NO_OF_PERIODS (say 36 hrs), realised volatility and most recent price are fetched for the PAX Gold proxy from Kraken. PAXG historical data is an easy (and free) 24/7 data source offering continuous returns. The model follows the Ornstein-Uhlenbeck (OU) process for mean reversion. Theta is the speeed of reversion which I adjust from emperical, realised reversions 
+
 $d X_t​=θ(μ−X_t​)dt+σd W_t​$
 
 where:
