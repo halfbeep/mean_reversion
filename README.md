@@ -1,4 +1,6 @@
-I use this tool to gauge how the price of Gold will revert to its long term average. Using the average of the last NO_OF_PERIODS (say 36 hrs), realised volatility and the most recent price are fetched for the PAX Gold proxy from Kraken. PAXG historical data are an easy (and free) 24/7 source offering continuous returns. This model follows the Ornstein-Uhlenbeck (OU) process for mean reversion. Theta is the speed of reversion which I adjust from emperical, realised reversions (fitting the process)
+This tool helps estimate how the price of Gold is likely to revert to its long-term average. It calculates the average price over a configurable number of periods (e.g., the last 36 hours), along with the realized volatility and the most recent price, using data fetched from Kraken for the PAX Gold price (PAXG), an on-chain proxy. The historical data for PAXG serves as a reliable and free 24/7 source, offering continuous returns for modeling
+
+The mean reversion prediction is based on the Ornstein-Uhlenbeck (OU) process, a widely used model for mean-reverting behavior in financial markets. The speed of reversion, denoted by theta (θ), is adjusted based on empirical observations of how quickly prices have reverted in the past, ensuring the model is well-fitted to the data
 
 <h2>$d X_t​=θ(μ−X_t​)dt+σd W_t​$</h2>
 
